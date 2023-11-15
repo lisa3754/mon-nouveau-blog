@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(215, 244, 179);
+}
+
+.table-container {
+    border: 2px solid rgb(17, 107, 60);
+    padding: 10px;
+    margin: 30px; 
+}

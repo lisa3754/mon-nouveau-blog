@@ -1,0 +1,76 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h3>Les chevaux</h3>
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-container">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Cheval</th>
+                                <th>Photo</th>
+                                <th>État</th>
+                                <th>Lieu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for character in characters %}
+                                <tr>
+                                    <td>
+                                        <strong><a href="{% url 'post_detail' id_character=character.id_character %}">{{ character.id_character }}</a></strong><br>
+                                        <em>{{ character.type }} - {{ character.race }}</em>
+                                    </td>
+                                    <td>
+                                        <img src="{{ character.photo }}" alt="{{ character.id_character }}" style="max-width: 180px;">
+                                    </td>
+                                    <td>{{ character.etat }}</td>
+                                    <td>{{ character.lieu }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Les lieux</h3>
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-container">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Lieu</th>
+                                <th>Photo</th>
+                                <th>État</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for equipement in equipements %}
+                                <tr>
+                                    <td>
+                                        <strong>{{ equipement.id_equip }}</strong><br>
+                                    </td>
+                                    <td>
+                                        <img src="{{ equipement.photo }}" alt="{{ equipement.id_character }}" style="max-width: 180px;">
+                                    </td>
+                                    <td>{{ equipement.disponibilite }}</td>
+                                    <td> <em>{{ equipement.description }}</em> </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
